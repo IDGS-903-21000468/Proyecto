@@ -1,0 +1,23 @@
+# Archivos generados por el sistema y el IDE
+.gradle/
+.idea/
+build/
+captures/
+*.iml
+*.hprof
+
+# Archivos de configuración local (¡NUNCA SUBIR!)
+local.properties
+.DS_Store
+
+# Archivos de firma (¡MUY IMPORTANTE NO SUBIR!)
+*.jks
+*.keystore
+
+# Registros (Logs)
+*.log
+
+# Paquetes de salida (APKs, Bundles)
+*.apk
+*.aab
+*.ap_
