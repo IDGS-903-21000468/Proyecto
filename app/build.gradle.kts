@@ -48,7 +48,6 @@ android {
 
 dependencies {
     //  Gemini AI SDK
-// Actualiza el número de versión a 0.5.0
     implementation("com.google.ai.client.generativeai:generativeai:0.5.0")
 
     // Coroutines
@@ -78,7 +77,6 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
-    // 🛠 Debug
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
