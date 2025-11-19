@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    // Agregar plugin de serialización
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 android {
@@ -17,8 +19,14 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-
         buildConfigField("String", "GEMINI_API_KEY", "\"AIzaSyCh6A96cTcze-IgFbVf934GLHZgxjjNzlo\"")
+
+        // ⭐ CAMBIADO: URL para dispositivo físico
+        // url de mi casa
+        buildConfigField("String", "API_BASE_URL", "\"http://192.168.0.100:5000/api/\"")
+        //url de la escuela
+       // buildConfigField("String", "API_BASE_URL", "\"http://10.16.6.227:5000/api/\"")
+
     }
 
     buildTypes {
@@ -47,20 +55,30 @@ android {
 }
 
 dependencies {
-    //  Gemini AI SDK
-// Actualiza el número de versión a 0.5.0
+    // ⭐ NUEVO: Retrofit para llamadas HTTP
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // ⭐ NUEVO: Kotlinx Serialization (alternativa)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+    // ⭐ NUEVO: DataStore para guardar token
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Gemini AI SDK
     implementation("com.google.ai.client.generativeai:generativeai:0.5.0")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
-    //  Android Core
+    // Android Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
-    //  Jetpack Compose
+    // Jetpack Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -68,24 +86,24 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation("androidx.compose.material:material-icons-extended:1.7.5")
 
-    //  Coil para cargar imágenes
+    // Coil para cargar imágenes
     implementation("io.coil-kt:coil-compose:2.7.0")
 
-    //  Testing
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
-    // 🛠 Debug
+    // Debug
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    //  Navigation Compose
+    // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    //  ViewModel Compose
+    // ViewModel Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
 }

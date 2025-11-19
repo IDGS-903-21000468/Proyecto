@@ -20,11 +20,11 @@ data class ItemNavegacion(
 @Composable
 fun BarraNavegacionInferior(navController: NavController) {
     val items = listOf(
-        ItemNavegacion("Inicio", Icons.Filled.Home, Rutas.BuscarProductos.ruta),
-        ItemNavegacion("Buscar", Icons.Filled.Search, Rutas.AsistenteAVT.ruta),
-        ItemNavegacion("", Icons.Filled.DirectionsCar, Rutas.GarageSocial.ruta),
-        ItemNavegacion("Carrito", Icons.Filled.ShoppingCart, Rutas.Marketplace.ruta, tieneBadge = true),
-        ItemNavegacion("Perfil", Icons.Filled.Person, Rutas.MisPedidos.ruta)
+        ItemNavegacion("Buscar", Icons.Filled.Search, Rutas.BuscarProductos.ruta),
+        ItemNavegacion("Social", Icons.Filled.People, Rutas.GarageSocial.ruta),
+        ItemNavegacion("Marketplace", Icons.Filled.ShoppingCart, Rutas.Marketplace.ruta),
+        ItemNavegacion("Pedidos", Icons.Filled.LocalShipping, Rutas.MisPedidos.ruta),
+        ItemNavegacion("Asistente", Icons.Filled.SmartToy, Rutas.AsistenteAVT.ruta)
     )
 
     val rutaActual = navController.currentBackStackEntryAsState().value?.destination?.route
@@ -70,3 +70,4 @@ fun BarraNavegacionInferior(navController: NavController) {
         }
     }
 }
+
