@@ -23,9 +23,9 @@ android {
 
         // ⭐ CAMBIADO: URL para dispositivo físico
         // url de mi casa
-        buildConfigField("String", "API_BASE_URL", "\"http://192.168.0.100:5000/api/\"")
+       // buildConfigField("String", "API_BASE_URL", "\"http://192.168.0.100:5000/api/\"")
         //url de la escuela
-       // buildConfigField("String", "API_BASE_URL", "\"http://10.16.6.227:5000/api/\"")
+        buildConfigField("String", "API_BASE_URL", "\"http://10.16.6.227:5000/api/\"")
 
     }
 
